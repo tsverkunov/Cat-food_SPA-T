@@ -1,0 +1,31 @@
+.page
+  display: flex
+  flex-direction: column
+  justify-content: center
+  min-height: 100vh
+
+.page:before
+  position: fixed
+  top: 0
+  left: 0
+  z-index: -1
+  width: 100%
+  height: 100%
+  content: ""
+  background: url(./img/Shadow.png) 0 0/100% 100% no-repeat
+.page__header
+  color: #ffffff
+  text-shadow: 0 1px 0 #000000
+  font-family: "exo-20-thin", serif
+  font-size: 36px
+  font-weight: 400
+  text-align: center
+  margin: 47px 0 24px 0
+  z-index:
+  content: ''
+
+.cards
+  position: relative
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
