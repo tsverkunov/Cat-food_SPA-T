@@ -1,47 +1,17 @@
-import React from "react";
-import {Card} from "./components/Card/Card";
+import React from 'react'
+import {Card} from './components/Card/Card'
 import style from './App.module.sass'
+import {initialCards} from './utils/cards'
 
 function App() {
-
-  const cards = [
-    {
-      id: 1,
-      isDisabled: false,
-      flavor: "с фуа-гра",
-      portion: "10 порций",
-      present: "мышь в подарок",
-      packageWeight: "0,5",
-      altText: "Печень утки разварная с артишоками."
-    },
-    {
-      id: 2,
-      isDisabled: false,
-      flavor: "с рыбой",
-      portion: "40 порций",
-      present: "2 мыши в подарок",
-      packageWeight: "2",
-      altText: "Головы щучьи с чесноком да свежайшая сёмгушка."
-    },
-    {
-      id: 3,
-      isDisabled: true,
-      flavor: "с курой",
-      portion: "100 порций",
-      present: "5 мышей в подарок заказчик доволен",
-      packageWeight: "5",
-      altText: "Филе из цыплят с трюфелями в бульоне."
-    }
-  ]
-
   return (
     <div className={style.page}>
       <div className={style.page__header}>
-        Ты сегодня покормил кота?
+        Ты сегодня покормил кота?np
       </div>
       <div className={style.cards}>
         {
-          cards.map(c =>
+          initialCards.map(c =>
             <Card
               key={c.id}
               isDisabled={c.isDisabled}
@@ -54,7 +24,7 @@ function App() {
         }
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

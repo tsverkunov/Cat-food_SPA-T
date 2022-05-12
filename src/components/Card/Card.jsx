@@ -1,16 +1,16 @@
-import React, {useState} from "react";
-import style from "./Card.module.sass"
-import cat from "../../img/cat.png"
-import cn from "classnames"
+import React, {useState} from 'react'
+import style from './Card.module.sass'
+import cat from '../../img/cat.png'
+import cn from 'classnames'
 
 
 export const Card = (props) => {
-  let [isSelected, setIsSelected] = useState(false)
-  let [isHover, setIsHover] = useState(false)
-  let [buy, setBuy] = useState(true)
-  let [catConsent, setCatConsent] = useState(true)
+  const [isSelected, setIsSelected] = useState(false)
+  const [isHover, setIsHover] = useState(false)
+  const [buy, setBuy] = useState(true)
+  const [catConsent, setCatConsent] = useState(true)
 
-  const click = () => {
+  const handleClick = () => {
     setIsSelected(!isSelected)
     setBuy(!buy)
     setIsHover(false)
@@ -38,13 +38,13 @@ export const Card = (props) => {
 
   return (
     <div>
-      <div onClick={click}
-           onMouseLeave={onMouseLeave}
-           onMouseEnter={onMouseEnter}
-           className={style.card}>
+      <div
+        onClick={handleClick}
+        onMouseLeave={onMouseLeave}
+        onMouseEnter={onMouseEnter}
+        className={style.card}>
         <div className={style.header}>
           <div className={cn(style.grad, {[style.isSelected]: isSelected, [style.isDisabled]: props.isDisabled})}>
-
           </div>
           <div className={cn(style.memo, {[style.isSelected]: isSelected, [style.isDisabled]: props.isDisabled})}>
             {catConsent
@@ -87,7 +87,7 @@ export const Card = (props) => {
           (buy &&
             <>
               <span>Чего сидишь? Порадуй котэ, </span>
-              <span onClick={click} className={style.buy}>купи.</span>
+              <span onClick={handleClick} className={style.buy}>купи.</span>
             </>)
           ||
           <span>{props.altText}</span>
