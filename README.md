@@ -1,8 +1,3 @@
-# Cat-food_SPA
-test task for vacancy
-
-
-
 # "Cat food SPA"
 
 ### [*Ссылка на приложение &rarr;*](https://nyamushka-3ce89.web.app/ "Cat food") React - SPA "Cat food"
