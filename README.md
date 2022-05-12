@@ -1,4 +1,4 @@
-# "Cat food SPA"
+# "Cat food"
 
 ### [*Ссылка на приложение &rarr;*](https://nyamushka-3ce89.web.app/ "Cat food") React - SPA "Cat food"
 
