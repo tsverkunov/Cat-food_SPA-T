@@ -6,20 +6,20 @@ import {initialCards} from './utils/cards'
 function App() {
   return (
     <div className={style.page}>
-      <div className={style.page__header}>
-        Ты сегодня покормил кота?np
-      </div>
+      <header className={style.page__header}>
+        Ты сегодня покормил кота?
+      </header>
       <div className={style.cards}>
         {
-          initialCards.map(c =>
+          initialCards.map(card =>
             <Card
-              key={c.id}
-              isDisabled={c.isDisabled}
-              flavor={c.flavor}
-              portion={c.portion}
-              present={c.present}
-              packageWeight={c.packageWeight}
-              altText={c.altText}
+              key={card.id}
+              isDisabled={card.isDisabled}
+              flavor={card.flavor}
+              portion={card.portion}
+              present={card.present}
+              packageWeight={card.packageWeight}
+              altText={card.altText}
             />)
         }
       </div>

@@ -1,40 +1,46 @@
-import React, {useState} from 'react'
-import style from './Card.module.sass'
-import cat from '../../img/cat.png'
-import cn from 'classnames'
+import React, { useState } from 'react';
+import style from './Card.module.sass';
+import cat from '../../img/cat.webp';
+import cn from 'classnames';
 
-
-export const Card = (props) => {
-  const [isSelected, setIsSelected] = useState(false)
-  const [isHover, setIsHover] = useState(false)
-  const [buy, setBuy] = useState(true)
-  const [catConsent, setCatConsent] = useState(true)
+export const Card = ({
+                       altText,
+                       flavor,
+                       isDisabled,
+                       portion,
+                       packageWeight,
+                       present,
+                     }) => {
+  const [isSelected, setIsSelected] = useState(false);
+  const [isHover, setIsHover] = useState(false);
+  const [buy, setBuy] = useState(true);
+  const [catConsent, setCatConsent] = useState(true);
 
   const handleClick = () => {
-    setIsSelected(!isSelected)
-    setBuy(!buy)
-    setIsHover(false)
-    if (props.isDisabled) {
-      setIsSelected(false)
+    setIsSelected(!isSelected);
+    setBuy(!buy);
+    setIsHover(false);
+    if (isDisabled) {
+      setIsSelected(false);
     } else if (!buy) {
-      setCatConsent(true)
+      setCatConsent(true);
     }
-  }
+  };
   const onMouseLeave = () => {
-    if (props.isDisabled) {
-      setCatConsent(true)
+    if (isDisabled) {
+      setCatConsent(true);
     } else if (!buy) {
-      setCatConsent(false)
+      setCatConsent(false);
     }
-    setIsHover(false)
-  }
+    setIsHover(false);
+  };
   const onMouseEnter = () => {
-    if (props.isDisabled) {
-      setIsHover(false)
+    if (isDisabled) {
+      setIsHover(false);
     } else if (!isSelected) {
-      setIsHover(true)
+      setIsHover(true);
     }
-  }
+  };
 
   return (
     <div>
@@ -43,46 +49,53 @@ export const Card = (props) => {
         onMouseLeave={onMouseLeave}
         onMouseEnter={onMouseEnter}
         className={style.card}>
-        <div className={style.header}>
-          <div className={cn(style.grad, {[style.isSelected]: isSelected, [style.isDisabled]: props.isDisabled})}>
+        <div className={style.card__header}>
+          <div className={cn(style.card__grad, {
+            [style.isSelected]: isSelected,
+            [style.isDisabled]: isDisabled,
+          })}>
           </div>
-          <div className={cn(style.memo, {[style.isSelected]: isSelected, [style.isDisabled]: props.isDisabled})}>
+          <div className={cn(style.card__memo, {
+            [style.isSelected]: isSelected,
+            [style.isDisabled]: isDisabled,
+          })}>
             {catConsent
               ? 'Сказочное заморское яство'
               : <span>Котэ не одобряет?</span>
             }
           </div>
         </div>
-        <div className={cn(style.mainText, {[style.isSelected]: isSelected, [style.isDisabled]: props.isDisabled})}>
-          <div className={style.title}>
+        <div className={cn(style.card__mainText, {
+          [style.isSelected]: isSelected,
+          [style.isDisabled]: isDisabled,
+        })}>
+          <div className={style.card__title}>
             <span>Нямушка</span>
           </div>
-          <div className={style.subTitle}>
-            <span>{props.flavor}</span>
+          <div className={style.card__subTitle}>
+            <span>{flavor}</span>
           </div>
-          <div className={style.text}>
+          <div className={style.card__text}>
             <ul>
-              <li>{props.portion}</li>
-              <li>{props.present}</li>
+              <li>{portion}</li>
+              <li>{present}</li>
             </ul>
           </div>
-          <div className={style.img}>
-            <img src={cat} alt="img"/>
-          </div>
-          <div className={cn(style.circle, {
+          <img className={style.card__img} src={cat} alt="img"/>
+          <div className={cn(style.card__circle, {
             [style.isSelected]: isSelected,
-            [style.isDisabled]: props.isDisabled,
-            [style.isHover]: isHover
+            [style.isDisabled]: isDisabled,
+            [style.isHover]: isHover,
           })}>
-            <span className={style.weight}>{props.packageWeight}</span>
-            <span className={style.kg}>кг</span>
+            <span className={style.card__weight}>{packageWeight}</span>
+            <span className={style.card__kg}>кг</span>
           </div>
         </div>
       </div>
-      <div className={style.sign}>
+      <div className={style.card__signature}>
         {
-          (props.isDisabled &&
-            <span className={style.disabledCard}>{`Печалька ${props.flavor} закончился.`}</span>)
+          (isDisabled &&
+            <span className={style.disabledCard}>{`Печалька ${flavor} закончился.`}</span>)
           ||
           (buy &&
             <>
@@ -90,9 +103,9 @@ export const Card = (props) => {
               <span onClick={handleClick} className={style.buy}>купи.</span>
             </>)
           ||
-          <span>{props.altText}</span>
+          <span>{altText}</span>
         }
       </div>
     </div>
-  )
-}
+  );
+};
