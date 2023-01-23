@@ -3,26 +3,34 @@
   flex-direction: column
   justify-content: center
   min-height: 100vh
+  font-family: "Trebuchet MS", serif
+  font-style: normal
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
+  -webkit-text-size-adjust: 100%
+  -ms-text-size-adjust: 100%
+  -moz-text-size-adjust: 100%
+  text-rendering: optimizeLegibility
 
-.page:before
-  position: fixed
-  top: 0
-  left: 0
-  z-index: -1
-  width: 100%
-  height: 100%
-  content: ""
-  background: url(./img/Shadow.png) 0 0/100% 100% no-repeat
-.page__header
-  color: #ffffff
-  text-shadow: 0 1px 0 #000000
-  font-family: "exo-20-thin", serif
-  font-size: 36px
-  font-weight: 400
-  text-align: center
-  margin: 47px 0 24px 0
-  z-index:
-  content: ''
+  &:before
+    position: fixed
+    top: 0
+    left: 0
+    z-index: -1
+    width: 100%
+    height: 100%
+    content: ""
+    background: url(./img/Shadow.png) 0 0/100% 100% no-repeat
+
+  &__title
+    color: #ffffff
+    text-shadow: 0 1px 0 #000000
+    font-family: "exo-20-thin", serif
+    font-size: 36px
+    font-weight: 400
+    text-align: center
+    margin: 47px 0 24px 0
+    content: ''
 
 .cards
   position: relative

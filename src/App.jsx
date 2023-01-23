@@ -6,10 +6,10 @@ import {initialCards} from './utils/cards'
 function App() {
   return (
     <div className={style.page}>
-      <header className={style.page__header}>
+      <span className={style.page__title}>
         Ты сегодня покормил кота?
-      </header>
-      <div className={style.cards}>
+      </span>
+      <section className={style.cards}>
         {
           initialCards.map(card =>
             <Card
@@ -22,7 +22,7 @@ function App() {
               altText={card.altText}
             />)
         }
-      </div>
+      </section>
     </div>
   )
 }

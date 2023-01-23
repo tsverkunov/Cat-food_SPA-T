@@ -43,12 +43,12 @@ export const Card = ({
   };
 
   return (
-    <div>
+    <div className={style.card}>
       <div
         onClick={handleClick}
         onMouseLeave={onMouseLeave}
         onMouseEnter={onMouseEnter}
-        className={style.card}>
+        className={style.card__container}>
         <div className={style.card__header}>
           <div className={cn(style.card__grad, {
             [style.isSelected]: isSelected,
@@ -60,8 +60,8 @@ export const Card = ({
             [style.isDisabled]: isDisabled,
           })}>
             {catConsent
-              ? 'Сказочное заморское яство'
-              : <span>Котэ не одобряет?</span>
+              ? <span className={style.card__memoTitle}>Сказочное заморское яство</span>
+              : <span className={style.card__memoTitle_active}>Котэ не одобряет?</span>
             }
           </div>
         </div>
@@ -69,18 +69,12 @@ export const Card = ({
           [style.isSelected]: isSelected,
           [style.isDisabled]: isDisabled,
         })}>
-          <div className={style.card__title}>
-            <span>Нямушка</span>
-          </div>
-          <div className={style.card__subTitle}>
-            <span>{flavor}</span>
-          </div>
-          <div className={style.card__text}>
-            <ul>
-              <li>{portion}</li>
-              <li>{present}</li>
-            </ul>
-          </div>
+          <span className={style.card__title}>Нямушка</span>
+          <span className={style.card__subtitle}>{flavor}</span>
+          <ul className={style.card__list}>
+            <li className={style.card__item}>{portion}</li>
+            <li className={style.card__item}>{present}</li>
+          </ul>
           <img className={style.card__img} src={cat} alt="img"/>
           <div className={cn(style.card__circle, {
             [style.isSelected]: isSelected,
@@ -95,17 +89,17 @@ export const Card = ({
       <div className={style.card__signature}>
         {
           (isDisabled &&
-            <span className={style.disabledCard}>{`Печалька ${flavor} закончился.`}</span>)
+            <span className={style.card__disabledCard}>{`Печалька ${flavor} закончился.`}</span>)
           ||
           (buy &&
             <>
-              <span>Чего сидишь? Порадуй котэ, </span>
-              <span onClick={handleClick} className={style.buy}>купи.</span>
+              <span className={style.card__altText}>Чего сидишь? Порадуй котэ, </span>
+              <span onClick={handleClick} className={style.card__buy}>купи.</span>
             </>)
           ||
-          <span>{altText}</span>
+          <span className={style.card__altText}>{altText}</span>
         }
-      </div>
+      </div >
     </div>
   );
 };
